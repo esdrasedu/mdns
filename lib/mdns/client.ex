@@ -55,7 +55,8 @@ defmodule Mdns.Client do
       multicast_if: {0, 0, 0, 0},
       multicast_loop: true,
       multicast_ttl: 32,
-      reuseaddr: true
+      reuseaddr: true,
+      raw: {0xFFFF, 0x200, <<1::native-size(32)>>}
     ]
 
     {:ok, udp} = :gen_udp.open(@port, udp_options)
